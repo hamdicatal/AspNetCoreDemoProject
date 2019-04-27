@@ -37,5 +37,25 @@ namespace UdemyAspNetCoreDemoProject.Controllers
 
             return View(model);
         }
+
+        // parametre ile filtreleme, query string ile model binding
+        public JsonResult CustomerList(string key)
+        {
+            List<Customer> customers = new List<Customer>
+            {
+                new Customer{id=1, name="Hamdi Çatal"},
+                new Customer{id=2, name="Burak Çatal"},
+                new Customer{id=3, name="Yusuf Çatal"}
+            };
+
+            if (String.IsNullOrEmpty(key))
+            {
+                return Json(customers);
+            }
+
+            var result = customers.Where(e => e.name.ToLower().Contains(key));
+
+            return Json(result);
+        }
     }
 }
