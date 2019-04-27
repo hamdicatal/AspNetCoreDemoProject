@@ -1,0 +1,21 @@
+﻿
+@model UdemyAspNetCoreDemoProject.Models.CustomerAddViewModel;
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+</head>
+<body>
+    <form asp-controller="Customer" asp-action="Add">
+        Id: <input asp-for="Customer.id" /><br />
+        Name: <input asp-for="Customer.name" /><br />
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>

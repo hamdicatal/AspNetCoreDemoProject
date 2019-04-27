@@ -62,5 +62,10 @@ namespace UdemyAspNetCoreDemoProject.Controllers
         {
             return View();
         }
+
+        public string RouteData(int id)
+        {
+            return id.ToString();
+        }
     }
 }
