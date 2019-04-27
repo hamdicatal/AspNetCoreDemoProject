@@ -57,5 +57,10 @@ namespace UdemyAspNetCoreDemoProject.Controllers
 
             return Json(result);
         }
+
+        public ViewResult CustomerForm()
+        {
+            return View();
+        }
     }
 }
