@@ -6,11 +6,26 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using UdemyAspNetCoreDemoProject.Entities;
 using UdemyAspNetCoreDemoProject.Models;
+using UdemyAspNetCoreDemoProject.Services;
 
 namespace UdemyAspNetCoreDemoProject.Controllers
 {
     public class EmployeeController : Controller
     {
+        // Dependency Injection
+        private ICalculator _calculator;
+
+        public EmployeeController(ICalculator calculator)
+        {
+            _calculator = calculator;
+        }
+
+        public string Calculate()
+        {
+            return _calculator.Calculate(100).ToString();
+        }
+        /* */
+
         public IActionResult List()
         {
             List<Employee> employees = new List<Employee>

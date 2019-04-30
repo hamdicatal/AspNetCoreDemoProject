@@ -9,13 +9,14 @@
 <head>
     <meta name="viewport" content="width=device-width" />
     <title>Add</title>
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 </head>
 <body>
     <form asp-controller="Employee" asp-action="Add">
         <label asp-for="Employee.Id"></label> <input asp-for="Employee.Id" /><br />
         <label asp-for="Employee.Name"></label> <input asp-for="Employee.Name" /><br />
         <label asp-for="Employee.CityId"></label> <select asp-for="Employee.CityId" asp-items="Model.Cities"></select><br />
-        <button type="submit">Add</button>
+        <button class="btn btn-secondary" type="submit">Add</button>
     </form>
 </body>
 </html>
