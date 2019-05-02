@@ -24,5 +24,15 @@ namespace UdemyAspNetCoreDemoProject.Pages.Students
         {
             Students = _context.students.ToList();
         }
+
+        //ekleme işlemi için;
+        [BindProperty] //razor page'da model binding yerine bu attribute kullanılır
+        public Student student { get; set; } //cshtml'deki @student için...
+        public IActionResult OnPost()
+        {
+            _context.students.Add(student);
+            _context.SaveChanges();
+            return RedirectToPage("/students/index");
+        }
     }
 }
