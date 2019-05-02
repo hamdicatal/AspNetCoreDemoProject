@@ -20,9 +20,11 @@ namespace UdemyAspNetCoreDemoProject.Pages.Students
 
         public List<Student> Students { get; set; }
 
-        public void OnGet()
+        public void OnGet(string search)
         {
-            Students = _context.students.ToList();
+            Students = string.IsNullOrEmpty(search) ?
+                _context.students.ToList() :
+                _context.students.Where(s => s.FirstName.ToLower().Contains(search)).ToList();
         }
 
         //ekleme işlemi için;
