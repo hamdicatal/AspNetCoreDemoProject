@@ -20,6 +20,7 @@ namespace UdemyAspNetCoreDemoProject
         {
             services.AddMvc();
             services.AddScoped<ICalculator, Calculator8>();
+            services.AddSession();
 
             var connection = @"Server=(localdb)\mssqllocaldb;Database=SchoolDb;Trusted_Connection=true";
             services.AddDbContext<SchoolContext>(options => options.UseSqlServer(connection));
@@ -34,6 +35,8 @@ namespace UdemyAspNetCoreDemoProject
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseSession();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
@@ -42,6 +45,7 @@ namespace UdemyAspNetCoreDemoProject
                     template: "{controller=home}/{action=index}/{id?}"
                     );
             });
+            
         }
     }
 }
