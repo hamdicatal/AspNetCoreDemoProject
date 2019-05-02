@@ -1,0 +1,10 @@
+﻿@model UdemyAspNetCoreDemoProject.Models.StudentListViewModel
+@{
+    Layout = "_Layout"; 
+}
+
+@foreach (var student in Model.Students)
+{
+    <br />
+    @student.FirstName
+}
